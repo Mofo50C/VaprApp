@@ -1,0 +1,5 @@
+class Game < ApplicationRecord
+    has_and_belongs_to_many :genres, join_table: "game_genres"
+    has_and_belongs_to_many :publishers, join_table: "game_publishers"
+    has_and_belongs_to_many :developers, join_table: "game_developers"
+end
