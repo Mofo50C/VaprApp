@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_011435) do
+ActiveRecord::Schema.define(version: 2021_11_20_144237) do
 
   create_table "developers", force: :cascade do |t|
     t.string "name"
@@ -55,8 +55,45 @@ ActiveRecord::Schema.define(version: 2021_11_20_011435) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+    t.decimal "total"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_orders_on_game_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "publishers", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+    t.decimal "rating"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_reviews_on_game_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "user_games", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_user_games_on_game_id"
+    t.index ["user_id"], name: "index_user_games_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "nickname"
+    t.string "username"
+    t.string "email"
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
