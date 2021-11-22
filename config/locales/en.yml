@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  
+  app_name: Vapor
+
+  header:
+    navbar:
+      home: Home
+      contact: Contact
