@@ -1,3 +1,14 @@
-<div class="m-3 p-3" id="games_list">
-    <p>GamesController#index</p>
+<div class="container m-3 p-3 games-list">
+  <ul class="list-group m-3">
+    <% Game.find_each do |game| %>
+      <li class="games-list-entry list-group-item">
+        <p><%= link_to game.title, game_path(game) %></p>
+        <p><%= game.description %></p>
+        <p><%= game.release_date %></p>
+        <p>Genre: <%= game.genres.collect{|x| x.name} * ", " %></p>
+        <p>Publisher: <%= game.publishers.collect{|x| x.name} * ", " %></p>
+        <p>Developer: <%= game.developers.collect{|x| x.name} * ", " %></p>
+      </li>
+    <% end %>
+  </ul>
 </div>

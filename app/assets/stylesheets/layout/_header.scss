@@ -1,9 +1,12 @@
 nav.navbar {
-    background-color: tint-colour($BG_COLOUR, 5%);
+    background-color: get-surface(5%);
     border-width: 5px;
     border-color: black;
 }
 
 a.nav-link {
     color: white;
+    &:hover {
+        color: $ACCENT_COLOUR;
+    }
 }

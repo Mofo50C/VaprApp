@@ -1,3 +1,7 @@
+@function get-surface($weight) {
+    @return tint-colour($BG_COLOUR, $weight);
+}
+
 body {
     background-color: $BG_COLOUR;
     color: white;

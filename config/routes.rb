@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "games#index"
+    root "games#index"
 
-  get "/games", to: "games#index"
-  get "/games/:id", to: "games#show"
+    get "/games", to: "games#index"
+    get "/games/:id", to: "games#show", as: "game"
 
 end

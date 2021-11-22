@@ -1,3 +1,8 @@
-div#games_list {
-    background-color: tint-colour($BG_COLOUR, 7%);
+div.games-list {
+    background-color: get-surface(7%);
+}
+
+.games-list-entry {
+    background-color: get-surface(10%);
+    color: white;
 }
