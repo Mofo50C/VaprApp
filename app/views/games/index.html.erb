@@ -2,12 +2,16 @@
   <ul class="list-group m-3">
     <% Game.find_each do |game| %>
       <li class="games-list-entry list-group-item">
-        <p><%= link_to game.title, game_path(game) %></p>
-        <p><%= game.description %></p>
-        <p><%= game.release_date %></p>
-        <p>Genre: <%= game.genres.collect{|x| x.name} * ", " %></p>
-        <p>Publisher: <%= game.publishers.collect{|x| x.name} * ", " %></p>
-        <p>Developer: <%= game.developers.collect{|x| x.name} * ", " %></p>
+      <div class="d-flex">
+        <div class="p-5">
+          <%= image_tag("games/#{game.id}", class: "game-logo") %>
+        </div>
+        <div class="game-info p-5">
+          <p><%= link_to(game.title, game_path(game))%></p>
+          <p><%= game.description %></p>
+          <p>Price: <%= game.price > 0 ? t('currency') + (game.price*(1 - game.discount)).to_f.to_s : "Free" %></p>
+        </div>
+      </div>
       </li>
     <% end %>
   </ul>
