@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
     create_table :reviews do |t|
       t.belongs_to :user
       t.belongs_to :game
-      t.decimal :rating
+      t.integer :rating
       t.text :content
 
       t.timestamps

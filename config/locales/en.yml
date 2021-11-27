@@ -32,8 +32,16 @@
 en:  
   app_name: Vapor
   currency: £
+  price_free: Free To Play
 
   header:
     navbar:
       home: Home
-      contact: Contact
+      contact: Support
+
+  games:
+    show:
+      release_date: Released
+      genres: Genre
+      developers: Developer
+      publishers: Publisher

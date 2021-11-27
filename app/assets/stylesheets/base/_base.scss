@@ -1,5 +1,5 @@
 @function get-surface($weight) {
-    @return tint-colour($BG_COLOUR, $weight);
+    @return tint-color($BG_COLOUR, $weight);
 }
 
 body {

@@ -1,7 +1,0 @@
-@function tint-colour($colour, $weight) {
-    @return mix(white, $colour, $weight);
-}
-
-@function shade-colour($colour, $weight) {
-    @return mix(black, $colour, $weight);
-}

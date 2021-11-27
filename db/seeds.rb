@@ -6,116 +6,57 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-csgo = Game.create(
-    title: "Counter Strike: Global Offensive",
-    description: "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.).",
-    release_date: Date.new(2012, 8, 21),
-    price: 0,
-    discount: 0
+jump_force = Game.create(
+    title: "JUMP FORCE",
+    description: "Create your own avatar to fight alongside the most powerful Manga heroes in an original Story Mode, or head to the Online Lobby to challenge other players and discover lots of modes and activities.",
+    release_date: Date.new(2019, 2, 14),
+    price: 49.99,
+    discount: 90
 )
 
 dbd = Game.create(
-    title: "Dead By Deadlight",
+    title: "Dead By Daylight",
     description: "Dead by Daylight is a multiplayer (4vs1) horror game where one player takes on the role of the savage Killer, and the other four players play as Survivors, trying to escape the Killer and avoid being caught and killed.",
     release_date: Date.new(2016, 6, 14),
-    price: 14.99,
-    discount: 0
+    price: 14.99
 )
 
 among_us = Game.create(
     title: "Among Us",
     description: "An online and local party game of teamwork and betrayal for 4-15 players...in space!",
     release_date: Date.new(2018, 11, 16),
-    price: 3.99,
-    discount: 0
+    price: 3.99
 )
 
 dyson_sphere = Game.create(
     title: "Dyson Sphere Program",
     description: "Build the most efficient intergalactic factory in space simulation strategy game Dyson Sphere Program! Harness the power of stars, collect resources, plan and design production lines and develop your interstellar factory from a small space workshop to a galaxy-wide industrial empire.",
     release_date: Date.new(2021, 1, 21),
-    price: 15.49,
-    discount: 0
+    price: 15.49
 )
 
-genre_action = Genre.create(
-    name: "Action"
-)
+genre_action = Genre.create(name: "Action")
+genre_horror = Genre.create(name: "Horror")
+genre_indie = Genre.create(name: "Indie")
+genre_simulation = Genre.create(name: "Simulation")
+genre_strategy = Genre.create(name: "Strategy")
+genre_casual = Genre.create(name: "Casual")
+genre_fps = Genre.create(name: "FPS")
+genre_fighting = Genre.create(name: "Fighting")
 
-genre_horror = Genre.create(
-    name: "Horror"
-)
-
-genre_indie = Genre.create(
-    name: "Indie"
-)
-
-genre_simulation = Genre.create(
-    name: "Simulation"
-)
-
-genre_strategy = Genre.create(
-    name: "Strategy"
-)
-
-genre_casual = Genre.create(
-    name: "Casual"
-)
-
-genre_fps = Genre.create(
-    name: "FPS"
-)
-
-csgo.genres << [genre_action, genre_fps]
+jump_force.genres << [genre_action, genre_fighting]
 dbd.genres << [genre_action, genre_horror]
 among_us.genres << [genre_indie, genre_casual]
 dyson_sphere.genres << [genre_strategy, genre_simulation, genre_indie]
 
-dev_valve = Developer.create(
-    name: "Valve"
-)
+jump_force.developers << Developer.create(name: "Spike Chunsoft Co.")
+jump_force.publishers << Publisher.create(name: "BANDAI NAMCO Entertainment")
 
-dev_hiddenpath = Developer.create(
-    name: "Hidden Path Entertainment"
-)
+among_us.developers << Developer.create(name: "Innersloth")
+among_us.publishers << Publisher.create(name: "Innersloth")
 
-pub_valve = Publisher.create(
-    name: "Valve"
-)
+dbd.developers << Developer.create(name: "Behaviour Interactive")
+dbd.publishers << Publisher.create(name: "Behaviour Interactive")
 
-csgo.developers << [dev_valve, dev_hiddenpath]
-csgo.publishers << pub_valve
-
-dev_innersloth = Developer.create(
-    name: "Innersloth"
-)
-
-pub_innersloth = Publisher.create(
-    name: "Innersloth"
-)
-
-among_us.developers << dev_innersloth
-among_us.publishers << pub_innersloth
-
-dev_behaviour = Developer.create(
-    name: "Behaviour Interactive"
-)
-
-pub_behaviour = Publisher.create(
-    name: "Behaviour Interactive"
-)
-
-dbd.developers << dev_behaviour
-dbd.publishers << pub_behaviour
-
-dev_dyson = Developer.create(
-    name: "Youthcat Studio"
-)
-
-pub_dyson = Publisher.create(
-    name: "Gamera Game"
-)
-
-dyson_sphere.developers << dev_dyson
-dyson_sphere.publishers << pub_dyson
+dyson_sphere.developers << Developer.create(name: "Youthcat Studio")
+dyson_sphere.publishers << Publisher.create(name: "Gamera Game")

@@ -1,2 +1,24 @@
-<div class="container p-3 m-3">
+<div class="container p-3 m-3 game-main">
+  <div class="d-flex">
+    <div class="p-5">
+      <%= image_tag(get_logo_path(@game.title), class: "game-logo-large") %>
+      <% @game.price > 0 ? t('currency') + (@game.price*(1 - @game.discount)).to_f.to_s : t('price_label') %>
+    </div>
+    <div class="p-5">
+      <p><h3><%= @game.title %></h3></p>
+      <p><%= t('.genres') + ": " + @game.genres.map{|x| x.name}.compact*", " %></p>
+      <p><%= @game.release_date.strftime("#{t('.release_date')}: %b %d, %Y") %></p>
+      <p><%= t('.developers') + ": " + @game.developers.map{|x| x.name}.compact*", " %></p>
+      <p><%= t('.publishers') + ": " + @game.publishers.map{|x| x.name}.compact*", " %></p>
+    </div>
+  </div>
+  <hr/>
+  <div class="container p-3">
+    <p><strong><h4>About This Game</h4></strong></p>
+    <br>
+    <p><%= @game.description %></p>
+  </div>
+  <hr/>
+  <div class="container p-3">
+  </div>
 </div>

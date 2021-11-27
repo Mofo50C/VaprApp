@@ -1,0 +1,46 @@
+<div class="container p-3 m-3 register-form">
+  <div class="row justify-content-center m-5">
+    <div class="col-auto">
+      <h1>Register</h1>
+    </div>
+  </div>
+  <%= form_with model: @user, url: register_path do |f| %>
+    <div class="row justify-content-center m-5">
+      <div class="col-2">
+        <%= f.label(:username, "Username: ", class: "form-label") %>
+      </div>
+      <div class="col-4">
+        <%= f.text_field(:username, class: "form-control") %>
+      </div>
+    </div>
+    <div class="row justify-content-center m-5">
+      <div class="col-2">
+        <%= f.label(:email, "Email Address: ", class: "form-label")%>
+      </div>
+      <div class="col-4">
+        <%= f.email_field(:email, class: "form-control")%>
+      </div>
+    </div>
+    <div class="row justify-content-center m-5">
+      <div class="col-2">
+        <%= f.label(:password, "Password: ", class: "form-label")%>
+      </div>
+      <div class="col-4">
+        <%= f.password_field(:password, class: "form-control")%>
+      </div>
+    </div>
+    <div class="row justify-content-center m-5">
+      <div class="col-2">
+        <%= f.label(:password_again, "Confirm password: ", class: "form-label")%>
+      </div>
+      <div class="col-4">
+        <%= f.password_field(:password_again, class: "form-control")%>
+      </div>
+    </div>
+    <div class="row justify-content-center m-5">
+      <div class="col-2">
+        <%= f.submit("Register", class: "btn btn-primary") %>
+      </div>
+    </div>
+  <% end %>
+</div>

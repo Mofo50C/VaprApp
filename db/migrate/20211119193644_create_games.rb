@@ -4,8 +4,8 @@ class CreateGames < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :description
       t.date :release_date
-      t.decimal :price
-      t.decimal :discount
+      t.decimal :price, precision: 5, scale: 2
+      t.integer :discount, default: 0
 
       t.timestamps
     end
