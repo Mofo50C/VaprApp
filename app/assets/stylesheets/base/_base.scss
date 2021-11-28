@@ -6,3 +6,7 @@ body {
     background-color: $BG_COLOUR;
     color: white;
 }
+
+div.main-body {
+    background-color: get-surface(7%);
+}

@@ -9,9 +9,11 @@ class UsersController < ApplicationController
         # @user = User.new(new_user_params)
         # if @user.save
         #     session[:user_id] = @user.id
-        #     redirect_to(root_path, notice: "Account Created")
+        #     flash[:notice] = "Account created"
+        #     redirect_to root_path
         # else
-        #     render :new
+        #     flash.now[:alert] = "Exception during save, check model errors"
+        #     render "new"
         # end
     end
 
@@ -22,11 +24,12 @@ class UsersController < ApplicationController
     end
 
     def update
-      if Current.user.update(update_params)
-        redirect_to(current_user_path, notice: "Account Updated")
-      else
-        render :edit
-      end
+        # if Current.user.update(update_params)
+        #     flash[:notice] = "Account setting saved"
+        #     redirect_to current_user_path
+        # else
+        #     render "edit"
+        # end
     end
 
     private

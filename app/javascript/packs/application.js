@@ -10,6 +10,4 @@ import "channels"
 Rails.start()
 ActiveStorage.start()
 
-require("@popperjs/core")
-
 import "bootstrap"

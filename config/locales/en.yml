@@ -37,7 +37,10 @@ en:
   header:
     navbar:
       home: Home
-      contact: Support
+      contact: Contact
+      login: Login
+      register: Register
+      logout: Logout
 
   games:
     show:
@@ -45,3 +48,15 @@ en:
       genres: Genre
       developers: Developer
       publishers: Publisher
+      about_game: About This Game
+  
+  users:
+    new:
+      help:
+        username: Username not available
+        email: Email address already bound to user, please login.
+      label:
+        password: Password
+        email: Email Address
+        username: Username
+        pass_verify: Confirm Password

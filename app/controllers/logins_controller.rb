@@ -3,19 +3,21 @@ class LoginsController < ApplicationController
     end
 
     def create
-      user = User.find_by(username: params[:username])
+        user = User.find_by(username: params[:username])
 
-      if user.present? && user.authenticate(params[:password])
-        session[:user_id] = user.id
-        redirect_to(root_path, notice: "Logged in")
-      else
-        flash.now[:alert] = "Invalid username or password"
-        render :new
-      end
+        if user.present? && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            flash[:notice] = "Logged in"
+            redirect_to root_path
+        else
+            flash.now[:alert] = "Invalid username or password"
+            render "new"
+        end
     end
 
     def destroy
-      session[:user_id] = nil
-      redirect_to(root_path, notice: "Logged out")
+        session[:user_id] = nil
+        flash[:notice] = "Logged out"
+        redirect_to root_path
     end
 end

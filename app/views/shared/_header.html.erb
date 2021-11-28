@@ -9,5 +9,21 @@
         <%= link_to t('header.navbar.contact'), "#", class: "nav-link active" %>
       </li>
     </ul>
+    <ul class="navbar-nav ms-auto mb-2 mt-2">
+      <% if Current.user %>
+        <li class="nav-item">
+          <%= link_to Current.user.username, current_user_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('header.navbar.logout'), logout_path, method: :delete %>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to t('header.navbar.register'), register_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('header.navbar.login'), login_path, class: "nav-link active" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </nav>

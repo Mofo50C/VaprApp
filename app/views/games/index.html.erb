@@ -1,20 +1,18 @@
-<div class="container m-3 p-3 games-list">
-  <ul class="list-group m-3">
-    <% Game.find_each do |game| %>
-      <li class="games-list-entry list-group-item">
-        <div class="d-flex">
-          <div class="p-5">
-            <%= image_tag(get_logo_path(game.title), class: "game-logo") %>
-          </div> 
-          <div class="p-5">
-            <p><h3><%= link_to(game.title, game_path(game))%></h3></p>
-            <p><%= game.description %></p>
-            <div class="d-flex justify-content-end">
-              <strong><%= get_price_string(game) %></strong>
-            </div>
+<ul class="list-group m-3">
+  <% Game.find_each do |game| %>
+    <li class="games-list-entry list-group-item">
+      <div class="d-flex">
+        <div class="p-5">
+          <%= image_tag get_logo_path(game.title), class: "game-logo" %>
+        </div> 
+        <div class="p-5">
+          <p><h3><%= link_to game.title, game_path(game)%></h3></p>
+          <p><%= game.description %></p>
+          <div class="d-flex justify-content-end">
+            <strong><%= get_price_string(game) %></strong>
           </div>
         </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
+      </div>
+    </li>
+  <% end %>
+</ul>

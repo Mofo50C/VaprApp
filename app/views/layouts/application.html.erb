@@ -13,7 +13,9 @@
   <body>
     <%= render "shared/header"%>
     <div class="container">
-      <%= yield %>
+      <div class="container m-3 p-3 main-body">
+        <%= yield %>
+      </div>
     </div>
     <%= render "shared/footer"%>
   </body>
