@@ -52,6 +52,11 @@ en:
   
   users:
     new:
+      feedback:
+        username: Invalid username.
+        email: Invalid email.
+        password: Password must be at least 8 characters with numbers and upper/lower case letters.
+        pass_verify: Passwords do not match.
       help:
         username: Username not available
         email: Email address already bound to user, please login.

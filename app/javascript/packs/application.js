@@ -11,3 +11,5 @@ Rails.start()
 ActiveStorage.start()
 
 import "bootstrap"
+
+import "../src/registeration_form.js"
