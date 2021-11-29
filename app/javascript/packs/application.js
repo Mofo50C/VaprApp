@@ -12,4 +12,5 @@ ActiveStorage.start()
 
 import "bootstrap"
 
-import "../src/registeration_form.js"
+import "../src/registeration_form"
+import "../src/login_form"

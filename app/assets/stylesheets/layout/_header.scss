@@ -10,3 +10,18 @@ a.nav-link {
         color: $ACCENT_COLOUR;
     }
 }
+
+.nav-item.dropdown {
+    .dropdown-menu{
+        background-color: get-surface(10%);
+        .dropdown-item {
+            color: white;
+            &:hover {
+                color: $ACCENT_COLOUR;
+            }
+        }
+        .dropdown-divider {
+            color: white;
+        }
+    }
+}

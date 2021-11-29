@@ -11,11 +11,14 @@
     </ul>
     <ul class="navbar-nav ms-auto mb-2 mt-2">
       <% if Current.user %>
-        <li class="nav-item">
-          <%= link_to Current.user.username, current_user_path, class: "nav-link active" %>
+        <li class="nav-item dropdown">
+          <%= link_to Current.user.username, "#", class: "nav-link dropdown-toggle", data: {"bs-toggle": "dropdown"} %>
+          <ul class="dropdown-menu">
+            <li><%= link_to t('header.navbar.orders'), "#", class: "dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to t('header.navbar.logout'), logout_path, method: :delete, class: "dropdown-item" %></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <%= link_to t('header.navbar.logout'), logout_path, method: :delete %>
       <% else %>
         <li class="nav-item">
           <%= link_to t('header.navbar.register'), register_path, class: "nav-link active" %>

@@ -41,6 +41,7 @@ en:
       login: Login
       register: Register
       logout: Logout
+      orders: Orders
 
   games:
     show:
@@ -48,7 +49,12 @@ en:
       genres: Genre
       developers: Developer
       publishers: Publisher
-      about_game: About This Game
+      about_game: About This Game#
+
+  logins:
+    new:
+      error: Invalid username or password.
+      feedback: Required.
   
   users:
     new:
