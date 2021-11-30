@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
 
     def check_user_logged_in!
         if Current.user.nil?
-            redirect_to(login_path, alert: "Please login first")
+            flash[:login_require] = "Please login first"
+            redirect_to login_path
         end
     end
 

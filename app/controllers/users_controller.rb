@@ -6,15 +6,15 @@ class UsersController < ApplicationController
     end
 
     def create
-        # @user = User.new(new_user_params)
-        # if @user.save
-        #     session[:user_id] = @user.id
-        #     flash[:notice] = "Account created"
-        #     redirect_to root_path
-        # else
-        #     flash.now[:alert] = "Exception during save, check model errors"
-        #     render "new"
-        # end
+        @user = User.new(new_user_params)
+        if @user.save
+            session[:user_id] = @user.id
+            flash[:notice] = "Account created"
+            redirect_to root_path
+        else
+            flash.now[:alert] = "Exception during save, check model errors"
+            render "new"
+        end
     end
 
     def show
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     private
     
     def new_user_params
-        params.require(:user).permit(:username, :email, :password)
+        params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 
     def update_params

@@ -4,11 +4,20 @@
       <h1>Login</h1>
     </div>
   </div>
-  <div class="row ps-4">
-    <div class="col offset-3">
-      <% if flash.now[:alert] %>
-        <span class="username-dupe-error text-danger"><%= t('.error') %></span>
-      <% end %>
+  <div class="container">
+    <div class="row ps-4">
+      <div class="col offset-3">
+        <% if flash.now[:alert] %>
+          <span class="username-password-error text-danger"><%= t('.error.userpass') %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="row ps-4">
+      <div class="col offset-3">
+        <% if flash[:login_require] && Current.user.nil? %>
+          <span class="login-alert text-danger"><%= t('.error.login') %></span>
+        <% end %>
+      </div>
     </div>
   </div>
   <%= form_with url: login_path, html: {novalidate: true, id: "login_form"} do |f| %>

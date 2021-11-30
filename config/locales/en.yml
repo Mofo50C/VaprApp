@@ -49,11 +49,13 @@ en:
       genres: Genre
       developers: Developer
       publishers: Publisher
-      about_game: About This Game#
+      about_game: About This Game
 
   logins:
     new:
-      error: Invalid username or password.
+      error:
+        userpass: Invalid username or password.
+        login: You must be logged in!
       feedback: Required.
   
   users:

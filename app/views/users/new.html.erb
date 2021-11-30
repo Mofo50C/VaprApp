@@ -4,18 +4,20 @@
       <h1>Register</h1>
     </div>
   </div>
-  <div class="row ps-4">
-    <div class="col offset-3">
-      <% if flash.now[:alert] && !@user.errors[:username].empty? %>
-        <span class="username-dupe-error text-danger"><%= t('.help.username') %></span>
-      <% end %>
+  <div class="container">
+    <div class="row ps-4">
+      <div class="col offset-3">
+        <% if flash.now[:alert] && !@user.errors[:username].empty? %>
+          <span class="username-dupe text-danger"><%= t('.help.username') %></span>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="row ps-4">
-    <div class="col offset-3">
-      <% if flash.now[:alert] && !@user.errors[:username].empty? %>
-        <span class="email-dupe-error text-danger"><%= t('.help.email') %></span>
-      <% end %>
+    <div class="row ps-4">
+      <div class="col offset-3">
+        <% if flash.now[:alert] && !@user.errors[:email].empty? %>
+          <span class="email-dupe text-danger"><%= t('.help.email') %></span>
+        <% end %>
+      </div>
     </div>
   </div>
   <%= form_with model: @user, url: register_path, html: {novalidate: true, id:"register_form"} do |f| %>
@@ -50,10 +52,10 @@
     </div>
     <div class="row justify-content-center m-5">
       <div class="col-2">
-        <%= f.label :password_again, "Confirm password: ", class: "col-form-label" %>
+        <%= f.label :password_confirmation, t('.label.pass_verify') + ": ", class: "col-form-label" %>
       </div>
       <div class="col-4">
-        <%= f.password_field :password_again, class: "form-control", required: true %>
+        <%= f.password_field :password_confirmation, class: "form-control", required: true %>
         <div class="invalid-feedback"><%= t('.feedback.pass_verify') %></div>
       </div>
     </div>
