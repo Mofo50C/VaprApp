@@ -8,25 +8,22 @@ class CartsController < ApplicationController
     def create
         game = Game.find(params[:id])
 
-        begin
-            Current.cart.games.find(game.id)
-        rescue ActiveRecord::RecordNotFound => e
+        if !Current.cart.games.exists?(game.id)
             Current.cart.games << game
             redirect_to current_cart_path
         else
-            redirect_to game_path(game)
+            redirect_back(fallback_location: root_path)
         end
+
     end
 
     def update
         game = Game.find(params[:id])
 
-        begin
-            Current.cart.games.find(game.id)
-        rescue ActiveRecord::RecordNotFound => e
-        else
+        if Current.cart.games.exists?(game.id)
             Current.cart.games.delete(game)
         end
+
         redirect_to current_cart_path
     end
 

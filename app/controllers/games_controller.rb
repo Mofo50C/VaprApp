@@ -6,15 +6,7 @@ class GamesController < ApplicationController
 
     def show
         @game = Game.find(params[:id])
-        @added = false
-        if Current.user.present? && Current.cart.present?
-            begin
-                Current.cart.games.find(@game.id)
-            rescue ActiveRecord::RecordNotFound => e
-            else
-                @added = true
-            end
-        end
+        @added = Current.user.present? && Current.cart.present? && Current.cart.games.exists?(@game.id)
     end
 
 end

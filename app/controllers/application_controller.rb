@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     private
 
     def authenticated?
-        if Current.user.nil?
+        if Current.user.blank?
             flash[:login_required] = "Please login first"
             redirect_to login_path
         end
@@ -13,14 +13,14 @@ class ApplicationController < ActionController::Base
 
     def set_user
         if session[:user_id]
-            Current.user = User.find(session[:user_id])
+            Current.user = User.find_by(id: session[:user_id])
         end
     end
 
     def set_cart
-        if !Current.user.nil?
+        if Current.user.present?
             if session[:cart_id]
-                cart = Cart.find(session[:cart_id])
+                cart = Cart.find_by(id: session[:cart_id])
                 if cart.present?
                     Current.cart = cart
                 else
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
                 end
             end
     
-            if session[:cart_id].nil?
+            if session[:cart_id].blank?
                 Current.cart = Cart.create
                 session[:cart_id] = Current.cart.id
             end

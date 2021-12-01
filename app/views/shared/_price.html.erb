@@ -1,10 +1,11 @@
-<% if discount > 0 %>
-  <div>
-    <del><%= t('currency') + price.to_s %></del>
-    <span><%= " -#{discount}%" %></span>
-    
-    <strong><%= get_price_string(price, discount) %></strong>
+<div class="d-inline-flex flex-column">
+  <% if game.discount > 0 %>
+    <div>
+      <del><%= "#{t('currency')}%.2f" % game.price %></del>
+      <span><%= " -#{game.discount}%" %></span>
+    </div>
+  <% end %>
+  <div class="align-self-end">
+    <strong><%= "#{t('currency')}%.2f" % game.calculate_price %></strong>
   </div>
-<% else %>
-  <strong><%= t('currency') + price.to_s %></strong>
-<% end %>
+</div>

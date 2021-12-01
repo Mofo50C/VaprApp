@@ -7,4 +7,9 @@ class Game < ApplicationRecord
     has_many :users, through: :reviews
     has_many :orders
     has_many :users, through: :orders
+
+    def calculate_price
+        price * (100 - discount) / 100
+    end
+
 end

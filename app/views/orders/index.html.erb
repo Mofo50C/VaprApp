@@ -1,0 +1,31 @@
+<div class="container p-3 order-history-container">
+  <div class="row">
+    <div class="col">
+      <h4><%= t('.title') %></h4>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col">
+      <ul class="list-group">
+        <% @orders.each do |order| %>
+          <li class="list-group-item checkout-list-item">
+            <div class="d-flex justify-content-center m-3">
+              <div class="d-inline-flex flex-column align-items-start">
+                <div>
+                  <%= order.game.title %>
+                </div>
+                <div class="mt-2">
+                  <small><%= "#{t('.placed')}: " + order.created_at.to_s %></small>
+                </div>
+              </div>
+              <div class="ms-auto align-self-center">
+                <%= format_total_price(order.total) %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

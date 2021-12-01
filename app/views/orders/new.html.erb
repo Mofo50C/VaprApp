@@ -1,0 +1,40 @@
+<div class="container p-3 checkout-container">
+  <div class="row">
+    <div class="col">
+      <h4><%= t('.checkout_title') %></h4>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col">
+      <ul class="list-group">
+        <% Current.cart.games.each do |game| %>
+          <li class="list-group-item checkout-list-item">
+            <div class="d-flex justify-content-center m-3">
+              <div><h5><u><%= game.title %></u></h5></div>
+              <div class="ms-auto align-self-center">
+                <%= render partial: "shared/price", locals: {game: game} %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <hr/>
+  <div class="row justify-content-end mt-3 mb-3 m-2">
+    <div class="col-auto pb-4">
+      <%= format_total_price(@total_checkout) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="d-flex">
+        <%= link_to t('.back'), current_cart_path, class: "btn btn-primary" %>
+        <%= form_with url: checkout_path, method: :post, class: "ms-auto" do |f| %>
+          <%= f.submit t('.place_order'), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

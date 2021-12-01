@@ -70,6 +70,25 @@ en:
       remove: Remove
       empty: Empty!
       title: Cart
+      proceed: Proceed to Checkout
+
+  orders:
+    new:
+      total: Total
+      back: Back to Cart
+      checkout_title: Checkout
+      place_order: Purchase
+    
+    show:
+      message: Thank For Shopping
+      total: Total
+      continue: Continue Shopping
+
+    index:
+      total: Total
+      placed: Placed
+      title: Order History
+
   
   users:
     new:
