@@ -50,6 +50,9 @@ en:
       developers: Developer
       publishers: Publisher
       about_game: About This Game
+      buy_label: Buy
+      add_cart: Add To Cart
+      in_cart: View Cart
 
   logins:
     new:
@@ -57,6 +60,16 @@ en:
         userpass: Invalid username or password.
         login: You must be logged in!
       feedback: Required.
+      label:
+        username: Username
+        password: Password
+        login: Login
+
+  carts:
+    show:
+      remove: Remove
+      empty: Empty!
+      title: Cart
   
   users:
     new:

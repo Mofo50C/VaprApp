@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <h2><%= t('.title') %></h2>
+  </div>
+  <hr/>
+  <div class="row">
+    <% if Current.cart.games.empty? %>
+      <h5><%= t('.empty') %></h5>
+    <% end %>
+    <ul class="list-group">
+      <% Current.cart.games.each do |game| %>
+        <li class="list-group-item cart-item">
+          <div class="d-flex p-3">
+            <div>
+              <%= image_tag get_logo_path(game.title), class: "game-logo" %>
+            </div>
+            <div class="m-3 ps-5">
+              <h2><%= link_to game.title, game_path(game) %><h2>
+            </div>
+            <div class="ms-auto m-3 d-flex align-items-end flex-column">
+              <div class="p-2 cart-item-price"><%= render partial: "shared/price", locals: {price: game.price, discount: game.discount} %></div>
+              <div class="p-2 mt-auto">
+                <%= form_with url: remove_cart_path(game.id), method: :patch do |f| %>
+                  <%= f.submit t('.remove'), class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

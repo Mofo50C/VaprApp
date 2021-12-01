@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :check_user_logged_in!, only: [:edit, :update, :show]
+    before_action :authenticated?, only: [:edit, :update, :show]
 
     def new
         @user = User.new
@@ -9,10 +9,10 @@ class UsersController < ApplicationController
         @user = User.new(new_user_params)
         if @user.save
             session[:user_id] = @user.id
-            flash[:notice] = "Account created"
+            flash[:register_success] = "Account created"
             redirect_to root_path
         else
-            flash.now[:alert] = "Exception during save, check model errors"
+            flash.now[:alert] = "User could not be added"
             render "new"
         end
     end

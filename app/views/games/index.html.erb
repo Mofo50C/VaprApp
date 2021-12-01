@@ -9,7 +9,7 @@
           <p><h3><%= link_to game.title, game_path(game)%></h3></p>
           <p><%= game.description %></p>
           <div class="d-flex justify-content-end">
-            <strong><%= get_price_string(game) %></strong>
+            <%= render partial: "shared/price", locals: {price: game.price, discount: game.discount} %>
           </div>
         </div>
       </div>

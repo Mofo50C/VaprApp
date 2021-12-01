@@ -1,0 +1,10 @@
+<% if discount > 0 %>
+  <div>
+    <del><%= t('currency') + price.to_s %></del>
+    <span><%= " -#{discount}%" %></span>
+    
+    <strong><%= get_price_string(price, discount) %></strong>
+  </div>
+<% else %>
+  <strong><%= t('currency') + price.to_s %></strong>
+<% end %>

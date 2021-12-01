@@ -7,7 +7,7 @@ class LoginsController < ApplicationController
 
         if user.present? && user.authenticate(params[:password])
             session[:user_id] = user.id
-            flash[:notice] = "Logged in"
+            flash[:logged_in] = "Logged in"
             redirect_to root_path
         else
             flash.now[:alert] = "Invalid username or password"
@@ -17,7 +17,8 @@ class LoginsController < ApplicationController
 
     def destroy
         session[:user_id] = nil
-        flash[:notice] = "Logged out"
+        session[:cart_id] = nil
+        flash[:logged_out] = "Logged out"
         redirect_to root_path
     end
 end
