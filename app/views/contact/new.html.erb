@@ -1,0 +1,63 @@
+<div class="container p-3 m-3 contact-form-container">
+  <div class="d-flex justify-content-center m-5">
+    <h1><%= t('.contact_title') %></h1>
+  </div>
+  <% if flash.now[:notice] %>
+    <div class="row ps-4">
+      <div class="text-success col offset-3">
+        <%= t('.success') %>
+      </div>
+    </div>
+  <% end %>
+  <% if flash.now[:alert] %>
+    <div class="row ps-4">
+      <div class="text-danger col offset-3">
+        <%= t('.error') %>
+      </div>
+    </div>
+  <% end %>
+  <%= form_with url: contact_path, method: :post, html: {novalidate: true, id:"contact_form", class: "needs-validation"} do |f| %>
+    <div class="container">
+      <div class="row justify-content-center m-5 mb-auto">
+        <%= f.label :name, format_label(t('.label.name')), class: "col-form-label col-5" %>
+      </div>
+      <div class="row justify-content-center m-5 mt-auto">
+        <div class="col-5">
+          <%= f.text_field :name, class: "form-control", required: true %>
+          <div class="invalid-feedback"><%= t('.feedback.required') %></div>
+        </div>
+      </div>
+      <div class="row justify-content-center m-5 mb-auto">
+        <%= f.label :email, format_label(t('.label.email')), class: "col-form-label col-5" %>
+      </div>
+      <div class="row justify-content-center m-5 mt-auto">
+        <div class="col-5">
+          <%= f.email_field :email, class: "form-control", required: true %>
+          <div class="invalid-feedback"><%= t('.feedback.email') %></div>
+        </div>
+      </div>
+      <div class="row justify-content-center m-5 mb-auto">
+        <%= f.label :subject, format_label(t('.label.subject')), class: "col-form-label col-5" %>
+      </div>
+      <div class="row justify-content-center m-5 mt-auto">
+        <div class="col-5">
+          <%= f.text_field :subject, class: "form-control", required: true %>
+          <div class="invalid-feedback"><%= t('.feedback.required') %></div>
+        </div>
+      </div>
+      <div class="row justify-content-center m-5 mb-auto">
+        <%= f.label :body, format_label(t('.label.body')), class: "col-form-label col-5" %>
+      </div>
+      <div class="row justify-content-center m-5 mt-auto">
+        <div class="col-5">
+          <%= f.text_area :body, class: "form-control"%>
+        </div>
+      </div>
+      <div class="row justify-content-center m-5">
+        <div class="col-auto">
+          <%= f.submit t('.submit'), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

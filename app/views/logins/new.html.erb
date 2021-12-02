@@ -6,41 +6,37 @@
   </div>
   <% if flash.now[:alert] %>
     <div class="row ps-4 justify-content-center">
-      <div class="col offset-3 username-password-error text-danger">
+      <div class="col offset-4 username-password-error text-danger">
         <%= t('.error.userpass') %>
       </div>
     </div>
   <% end %>
   <% if flash[:login_required] && Current.user.nil? %>
     <div class="row ps-4 justify-content-center">
-      <div class="col offset-3 login-alert text-danger">
+      <div class="col offset-4 login-alert text-danger">
         <%= t('.error.login') %>
       </div>
     </div>
   <% end %>
-  <%= form_with url: login_path, html: {novalidate: true, id: "login_form", class: "needs-validation"} do |f| %>
+  <%= form_with url: login_path, method: :post, html: {novalidate: true, id: "login_form", class: "needs-validation"} do |f| %>
     <div class="container">
       <div class="row justify-content-center m-5">
-        <div class="col-2">
-          <%= f.label :username, t('.label.username') + ": ", class: "form-label" %>
-        </div>
+        <%= f.label :username, format_label(t('.label.username')), class: "col-form-label col-1" %>
         <div class="col-4">
           <%= f.text_field :username, class: "form-control", required: true %>
           <div class="invalid-feedback"><%= t('.feedback') %></div>
         </div>
       </div>
       <div class="row justify-content-center m-5">
-        <div class="col-2">
-          <%= f.label :password, t('.label.password') + ": ", class: "form-label" %>
-        </div>
+        <%= f.label :password, format_label(t('.label.password')), class: "col-form-label col-1" %>
         <div class="col-4">
           <%= f.password_field :password, class: "form-control", required: true %>
           <div class="invalid-feedback"><%= t('.feedback') %></div>
         </div>
       </div>
       <div class="row justify-content-center m-5">
-        <div class="col-2">
-          <%= f.submit t('.label.login'), class: "btn btn-primary" %>
+        <div class="col-auto">
+          <%= f.submit t('.login_button'), class: "btn btn-primary" %>
         </div>
       </div>
     </div>

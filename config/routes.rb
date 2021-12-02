@@ -19,4 +19,8 @@ Rails.application.routes.draw do
     get "user/order_history", to: "orders#index", as: "orders"
     get "checkout", to: "orders#new"
     post "checkout", to: "orders#create"
+
+    get "contact", to: "contact#new"
+    post "contact", to: "contact#create"
+
 end

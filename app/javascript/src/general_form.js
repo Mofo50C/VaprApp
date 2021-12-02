@@ -1,7 +1,12 @@
-import { addFormValidityTo } from "./form_validity_checker"
-
 $(function() {
     $(".needs-validation").each(function() {
-        addFormValidityTo($(this))
+        $(this).on("submit", function(e) {
+            if (!this.checkValidity()) {
+                e.preventDefault()
+                e.stopPropagation()
+            }
+    
+            $(this).addClass("was-validated")
+        })
     })
 })

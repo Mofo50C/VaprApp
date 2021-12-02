@@ -56,6 +56,7 @@ en:
   logins:
     new:
       login_title: Login
+      login_button: Login
       error:
         userpass: Invalid username or password.
         login: You must be logged in!
@@ -63,7 +64,6 @@ en:
       label:
         username: Username
         password: Password
-        login: Login
 
   carts:
     show:
@@ -91,6 +91,7 @@ en:
   users:
     new:
       register_title: Register
+      register_button: Register
       feedback:
         username: Invalid username.
         email: Invalid email.
@@ -104,3 +105,19 @@ en:
         email: Email Address
         username: Username
         pass_verify: Confirm Password
+
+  contact:
+    subject: Contact Support.
+    new:
+      success: Support has been contacted.
+      error: Error sending email.
+      contact_title: Contact Us
+      submit: Submit
+      feedback:
+        email: Invalid email.
+        required: Required.
+      label:
+        name: Name
+        email: Email
+        subject: Subject
+        body: Body

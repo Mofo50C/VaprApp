@@ -12,9 +12,11 @@
  *
  */
 
-@import 'bootstrap/scss/bootstrap';
-
 @import 'utilities/*';
+
+@import "vendors/*";
+
+@import "overrides/*";
 
 @import 'base/*';
 

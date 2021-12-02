@@ -1,33 +1,35 @@
-<nav class="navbar navbar-expand">
-  <div class="container-fluid">
-    <%= link_to t('app_name'), root_path, class: "navbar-brand" %>
-    <ul class="navbar-nav me-auto mb-2 mt-2">
-      <li class="nav-item">
-        <%= link_to t('header.navbar.home'), games_path, class: "nav-link active" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to t('header.navbar.contact'), "#", class: "nav-link active" %>
-      </li>
-    </ul>
-    <ul class="navbar-nav ms-auto mb-2 mt-2">
-      <% if Current.user %>
-        <li class="nav-item dropdown">
-          <%= link_to Current.user.username, "#", class: "nav-link dropdown-toggle", data: {"bs-toggle": "dropdown"} %>
-          <ul class="dropdown-menu">
-            <li><%= link_to t('header.navbar.cart'), current_cart_path, class: "dropdown-item" %></li>
-            <li><%= link_to t('header.navbar.orders'), orders_path, class: "dropdown-item" %></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><%= link_to t('header.navbar.logout'), logout_path, method: :delete, class: "dropdown-item" %></li>
-          </ul>
-        </li>
-      <% else %>
+<header>
+  <nav class="navbar navbar-expand">
+    <div class="container-fluid">
+      <%= link_to t('app_name'), root_path, class: "navbar-brand" %>
+      <ul class="navbar-nav me-auto mb-2 mt-2">
         <li class="nav-item">
-          <%= link_to t('header.navbar.register'), register_path, class: "nav-link active" %>
+          <%= link_to t('header.navbar.home'), games_path, class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to t('header.navbar.login'), login_path, class: "nav-link active" %>
+          <%= link_to t('header.navbar.contact'), contact_path, class: "nav-link active" %>
         </li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mt-2">
+        <% if Current.user %>
+          <li class="nav-item dropdown">
+            <%= link_to Current.user.username, "#", class: "nav-link dropdown-toggle", data: {"bs-toggle": "dropdown"} %>
+            <ul class="dropdown-menu">
+              <li><%= link_to t('header.navbar.cart'), current_cart_path, class: "dropdown-item" %></li>
+              <li><%= link_to t('header.navbar.orders'), orders_path, class: "dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to t('header.navbar.logout'), logout_path, method: :delete, class: "dropdown-item" %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to t('header.navbar.register'), register_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('header.navbar.login'), login_path, class: "nav-link active" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

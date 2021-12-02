@@ -16,49 +16,39 @@
       </div>
     </div>
   <% end %>
-  <%= form_with model: @user, url: register_path, html: {novalidate: true, id:"register_form", class: "needs-validation"} do |f| %>
+  <%= form_with model: @user, url: register_path, method: :post, html: {novalidate: true, id:"register_form", class: "needs-validation"} do |f| %>
     <div class="container">
       <div class="row justify-content-center m-5">
-        <div class="col-2">
-          <%= f.label :username, t('.label.username') + ": ", class: "col-form-label" %>
-        </div>
+        <%= f.label :username, format_label(t('.label.username')), class: "col-2 col-form-label" %>
         <div class="col-4">
-          <div class="form-group">
-            <%= f.text_field :username, class: "form-control", required: true %>
-            <div class="invalid-feedback"><%= t('.feedback.username') %></div>
-          </div>
+          <%= f.text_field :username, class: "form-control", required: true %>
+          <div class="invalid-feedback"><%= t('.feedback.username') %></div>
         </div>
       </div>
       <div class="row justify-content-center m-5">
-        <div class="col-2">
-          <%= f.label :email, t('.label.email') + ": ", class: "col-form-label" %>
-        </div>
+        <%= f.label :email, format_label(t('.label.email')), class: "col-form-label col-2" %>
         <div class="col-4">
           <%= f.email_field :email, class: "form-control", required: true %>
           <div class="invalid-feedback"><%= t('.feedback.email') %></div>
         </div>
       </div>
       <div class="row justify-content-center m-5">
-        <div class="col-2">
-          <%= f.label :password, t('.label.password') + ": ", class: "col-form-label" %>
-        </div>
+        <%= f.label :password, format_label(t('.label.password')), class: "col-form-label col-2" %>
         <div class="col-4">
           <%= f.password_field :password, class: "form-control", required: true %>
           <div class="invalid-feedback"><%= t('.feedback.password') %></div>
         </div>
       </div>
       <div class="row justify-content-center m-5">
-        <div class="col-2">
-          <%= f.label :password_confirmation, t('.label.pass_verify') + ": ", class: "col-form-label" %>
-        </div>
+        <%= f.label :password_confirmation, format_label(t('.label.pass_verify')), class: "col-form-label col-2" %>
         <div class="col-4">
           <%= f.password_field :password_confirmation, class: "form-control", required: true %>
           <div class="invalid-feedback"><%= t('.feedback.pass_verify') %></div>
         </div>
       </div>
       <div class="row justify-content-center m-5">
-        <div class="col-2">
-          <%= f.submit "Register", class: "btn btn-primary" %>
+        <div class="col-auto">
+          <%= f.submit t('.register_button'), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
