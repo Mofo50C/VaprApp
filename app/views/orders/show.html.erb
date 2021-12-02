@@ -1,35 +1,25 @@
 <div class="container p-3 order-placed-container">
-  <div class="row justify-content-center">
-    <div class="col-auto">
-      <h3><%= t('.message') %></h3>
-    </div>
+  <div class="d-flex justify-content-center">
+    <h3><%= t('.message') %></h3>
   </div>
   <hr/>
-  <div class="row">
-    <div class="col">
-      <ul class="list-group">
-        <% @current_orders.each do |order| %>
-          <li class="list-group-item checkout-list-item">
-            <div class="d-flex justify-content-center m-3">
-              <div><h5><u><%= order.game.title %></u></h5></div>
-              <div class="ms-auto align-self-center">
-                <%= render partial: "shared/price", locals: {game: order.game} %>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
+  <ul class="list-group">
+    <% @current_orders.each do |order| %>
+      <li class="list-group-item checkout-list-item">
+        <div class="d-flex justify-content-center m-3">
+          <div><h5><u><%= order.game.title %></u></h5></div>
+          <div class="ms-auto align-self-center">
+            <%= render partial: "shared/price", locals: {game: order.game} %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
   <hr/>
-  <div class="row justify-content-end m-3">
-    <div class="col-auto">
-      <div class="p-3"><%= format_total_price(@order_total) %></div>
-    </div>
+  <div class="d-flex m-3 justify-content-end">
+    <div class="p-3"><%= format_total_price(@order_total) %></div>
   </div>
-  <div class="row justify-content-center m-3">
-    <div class="col-auto">
-      <%= link_to t('.continue'), root_path, class: "btn btn-primary ms-auto" %>
-    </div>
+  <div class="d-flex m-3 justify-content-center">
+    <%= link_to t('.continue'), root_path, class: "btn btn-primary" %>
   </div>
 </div>

@@ -1,18 +1,20 @@
-<ul class="list-group m-3">
-  <% @games.each do |game| %>
-    <li class="games-list-entry list-group-item">
-      <div class="d-flex">
-        <div class="p-5">
-          <%= image_tag get_logo_path(game.title), class: "game-logo" %>
-        </div> 
-        <div class="p-5">
-          <p><h3><%= link_to game.title, game_path(game)%></h3></p>
-          <p><%= game.description %></p>
-          <div class="d-flex justify-content-end">
-            <%= render partial: "shared/price", locals: {game: game} %>
+<div class="container">
+  <ul class="list-group p-3">
+    <% @games.each do |game| %>
+      <li class="games-list-entry list-group-item">
+        <div class="d-flex">
+          <div class="p-5">
+            <%= image_tag get_logo_path(game.title), class: "game-logo" %>
+          </div> 
+          <div class="p-5">
+            <p><h3><%= link_to game.title, game_path(game)%></h3></p>
+            <p><%= game.description %></p>
+            <div class="d-flex justify-content-end">
+              <%= render partial: "shared/price", locals: {game: game} %>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
+</div>

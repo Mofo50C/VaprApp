@@ -1,11 +1,9 @@
 <div class="d-inline-flex flex-column">
   <% if game.discount > 0 %>
     <div>
-      <del><%= "#{t('currency')}%.2f" % game.price %></del>
-      <span><%= " -#{game.discount}%" %></span>
+      <del><%= format_price(game.price) %></del>
+      <%= " -#{game.discount}%" %>
     </div>
   <% end %>
-  <div class="align-self-end">
-    <strong><%= "#{t('currency')}%.2f" % game.calculate_price %></strong>
-  </div>
+    <strong class="align-self-end"><%= format_price(game.calculate_price) %></strong>
 </div>

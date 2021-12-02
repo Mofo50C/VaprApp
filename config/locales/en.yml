@@ -32,7 +32,6 @@
 en:  
   app_name: Vapor
   currency: £
-  price_free: Free To Play
 
   header:
     navbar:
@@ -56,6 +55,7 @@ en:
 
   logins:
     new:
+      login_title: Login
       error:
         userpass: Invalid username or password.
         login: You must be logged in!
@@ -73,25 +73,24 @@ en:
       proceed: Proceed to Checkout
 
   orders:
+    total: Total
     new:
-      total: Total
       back: Back to Cart
       checkout_title: Checkout
       place_order: Purchase
     
     show:
       message: Thank For Shopping
-      total: Total
       continue: Continue Shopping
 
     index:
-      total: Total
       placed: Placed
       title: Order History
 
   
   users:
     new:
+      register_title: Register
       feedback:
         username: Invalid username.
         email: Invalid email.
