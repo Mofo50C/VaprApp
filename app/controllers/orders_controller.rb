@@ -5,9 +5,6 @@ class OrdersController < ApplicationController
         @orders = Order.where(user: Current.user).order(:created_at)
     end
 
-    def show
-    end
-
     def new
         @total_checkout = get_total
     end

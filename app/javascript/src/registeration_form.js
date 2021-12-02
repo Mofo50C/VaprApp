@@ -1,5 +1,3 @@
-import { addFormValidityTo } from "./form_validity_checker"
-
 function checkPassword($form) {
     var $password = $form.find("#user_password")
     var value = $password.val()
@@ -37,7 +35,5 @@ $(function() {
     $register_form.find("#user_password_confirmation").on("input", function() {
         confirmPassword($register_form)
     })
-
-    addFormValidityTo($register_form)
     
 })
