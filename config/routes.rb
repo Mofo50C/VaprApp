@@ -22,5 +22,4 @@ Rails.application.routes.draw do
 
     get "contact", to: "contact#new"
     post "contact", to: "contact#create"
-
 end

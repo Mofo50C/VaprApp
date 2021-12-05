@@ -1,15 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyText
-  release_date: 2021-11-19
-  price: 9.99
-  discount: 9.99
+among_us:
+  title: "Among Us"
+  description: "An online and local party game of teamwork and betrayal for 4-15 players...in space!"
+  release_date: <%= Date.new(2018, 11, 16) %>
+  price: 3.99
 
-two:
-  title: MyString
-  description: MyText
-  release_date: 2021-11-19
-  price: 9.99
-  discount: 9.99

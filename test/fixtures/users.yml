@@ -1,13 +1,1 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  nickname: MyString
-  username: MyString
-  email: MyString
-  password: MyString
-
-two:
-  nickname: MyString
-  username: MyString
-  email: MyString
-  password: MyString
