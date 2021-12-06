@@ -21,4 +21,12 @@ Please make sure ruby and nodejs versions match requirements before running
 - run `rails db:setup` (just to be safe)
 - run `rails s` for development server
 
-if for any reason yarn could not be found install using: `npm install --global yarn`
+## troubleshooting
+
+If for any reason yarn could not be found install using: `npm install --global yarn`
+
+(Windows) If an error like this is encountered when doing `yarn install`:
+
+> cannot be loaded because running scripts is disabled on this system
+
+- please try running this command in powershell as administrator: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
