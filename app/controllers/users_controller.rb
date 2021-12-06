@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticated?, only: [:edit, :update, :show]
+    before_action :checked_logged_in!
 
     def new
         @user = User.new
@@ -9,15 +9,12 @@ class UsersController < ApplicationController
         @user = User.new(new_user_params)
         if @user.save
             session[:user_id] = @user.id
-            flash[:register_success] = "Account created"
-            redirect_to games_path
+            flash[:account_created] = "Account created"
+            redirect_to root_path
         else
             flash.now[:alert] = "User could not be added"
             render "new"
         end
-    end
-
-    def show
     end
 
     private

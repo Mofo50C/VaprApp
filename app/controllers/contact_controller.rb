@@ -4,19 +4,20 @@ class ContactController < ApplicationController
     end
 
     def create
-        ContactMailer.with(
-            name: params[:name],
-            email: params[:email],
-            subject: params[:subject],
-            body: params[:body]
-        ).support_email.deliver_now
+        ContactMailer.with(email_params).support_email.deliver_now
     rescue StandardError => e
         puts e
         flash.now[:alert] = "error sending email"
+        render "new"
     else
         flash.now[:notice] = "email sent"
-    ensure
         render "new"
+    end
+
+    private
+    
+    def email_params
+        params.permit(:name, :email, :subject, :body)
     end
 
 end

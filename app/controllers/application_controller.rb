@@ -26,4 +26,11 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def checked_logged_in!
+        if current_user
+            flash[:login_present] = "Already logged in"
+            redirect_to root_path
+        end
+    end
+
 end

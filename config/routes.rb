@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     
     get "register", to: "users#new"
     post "register", to: "users#create"
-    get "user", to: "users#show", as: "current_user"
 
     get "login", to: "logins#new"
     post "login", to: "logins#create"

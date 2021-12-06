@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
     before_action :authenticated?
+    before_action :check_cart!, except: :index
 
     def index
         @orders = Order.where(user: current_user).order(:created_at)
@@ -14,8 +15,9 @@ class OrdersController < ApplicationController
         current_cart.games.each do |game|
             order = Order.new(user: current_user, game: game, total: game.calculate_price)
             if !order.valid?
-                flash.now[:alert] = "Invalid order"
-                render "new" and return
+                flash[:alert] = "Invalid order"
+                redirect_to current_cart_path
+                return
             end
             @current_orders << order
         end
@@ -31,6 +33,12 @@ class OrdersController < ApplicationController
         total = 0
         current_cart.games.each {|game| total += game.calculate_price}
         return total
+    end
+
+    def check_cart!
+        if !current_cart || current_cart.games.empty?
+            redirect_to root_path
+        end
     end
 
 end

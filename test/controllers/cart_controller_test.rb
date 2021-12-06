@@ -6,7 +6,9 @@ class CartControllerTest < ActionDispatch::IntegrationTest
         get current_cart_url
         assert_response :redirect
         follow_redirect!
+        assert flash[:login_required]
         assert_equal login_path, path
+        assert_select ".login-alert"
     end
 
     test "should get cart" do
