@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             flash[:register_success] = "Account created"
-            redirect_to root_path
+            redirect_to games_path
         else
             flash.now[:alert] = "User could not be added"
             render "new"

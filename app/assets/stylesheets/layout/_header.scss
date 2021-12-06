@@ -1,7 +1,7 @@
 nav.navbar {
-    background-color: get-surface(7%);
     border-width: 5px;
     border-color: black;
+    background-color: get-surface(3%);
 }
 
 a.nav-link {
@@ -24,4 +24,9 @@ a.nav-link {
             color: white;
         }
     }
+}
+
+.main-header {
+    background-color: get-surface(3%);
+    min-height: 72px;
 }

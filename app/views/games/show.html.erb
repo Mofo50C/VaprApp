@@ -29,7 +29,7 @@
     </div>
     <div class="ms-auto m-3 d-flex align-items-end flex-column">
       <div class="p-2">
-        <%= render partial: "shared/price", locals: {game: @game} %>
+        <%= render partial: "shared/price", locals: {game: @game, sale: true} %>
       </div>
       <div class="p-2 mt-auto">
         <% if @added %>

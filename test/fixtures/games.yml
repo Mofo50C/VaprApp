@@ -5,4 +5,3 @@ among_us:
   description: "An online and local party game of teamwork and betrayal for 4-15 players...in space!"
   release_date: <%= Date.new(2018, 11, 16) %>
   price: 3.99
-

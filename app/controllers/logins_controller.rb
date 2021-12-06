@@ -8,7 +8,7 @@ class LoginsController < ApplicationController
         if user.present? && user.authenticate(params[:password])
             session[:user_id] = user.id
             flash[:logged_in] = "Logged in"
-            redirect_to root_path
+            redirect_to games_path
         else
             flash.now[:alert] = "Invalid username or password"
             render "new"

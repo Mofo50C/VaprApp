@@ -1,9 +1,9 @@
 <div class="d-inline-flex flex-column">
-  <% if game.discount > 0 %>
+  <% if sale && (game.discount > 0) %>
     <div>
       <del><%= format_price(game.price) %></del>
       <%= " -#{game.discount}%" %>
     </div>
   <% end %>
-    <strong class="align-self-end"><%= format_price(game.calculate_price) %></strong>
+  <strong class="align-self-end"><%= format_price(game.calculate_price) %></strong>
 </div>

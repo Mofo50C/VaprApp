@@ -6,7 +6,7 @@ class GamesController < ApplicationController
 
     def show
         @game = Game.find(params[:id])
-        @added = Current.user.present? && Current.cart.present? && Current.cart.games.exists?(@game.id)
+        @added = current_user && current_cart.present? && current_cart.games.exists?(@game.id)
     end
 
 end

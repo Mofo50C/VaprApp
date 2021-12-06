@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     post "login", to: "logins#create"
     delete "logout", to: "logins#destroy"
 
-    get "cart", to: "carts#show", as: "current_cart"
-    post "cart/add/:id", to: "carts#create", as: "add_cart"
-    patch "cart/remove/:id", to: "carts#update", as: "remove_cart"
+    get "cart", to: "cart#show", as: "current_cart"
+    post "cart/add/:id", to: "cart#create", as: "add_cart"
+    patch "cart/remove/:id", to: "cart#update", as: "remove_cart"
 
     get "user/order_history", to: "orders#index", as: "orders"
     get "checkout", to: "orders#new"

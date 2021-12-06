@@ -1,37 +1,29 @@
 class ApplicationController < ActionController::Base
+    helper_method :current_user, :current_cart
 
-    before_action :set_user, :set_cart
+    def current_user
+        @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    end
+
+    def current_cart
+        if current_user
+            begin
+                return Cart.find(session[:cart_id])
+            rescue ActiveRecord::RecordNotFound
+                cart = Cart.create
+                session[:cart_id] = cart.id
+                return cart
+            end
+        end
+    end
 
     private
 
     def authenticated?
-        if Current.user.blank?
+        if !current_user
             flash[:login_required] = "Please login first"
             redirect_to login_path
         end
     end
 
-    def set_user
-        if session[:user_id]
-            Current.user = User.find_by(id: session[:user_id])
-        end
-    end
-
-    def set_cart
-        if Current.user.present?
-            if session[:cart_id]
-                cart = Cart.find_by(id: session[:cart_id])
-                if cart.present?
-                    Current.cart = cart
-                else
-                    session[:cart_id] = nil
-                end
-            end
-    
-            if session[:cart_id].blank?
-                Current.cart = Cart.create
-                session[:cart_id] = Current.cart.id
-            end
-        end
-    end
 end

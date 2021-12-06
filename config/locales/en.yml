@@ -30,19 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:  
+  app_title: Welcome to Vapor
   app_name: Vapor
   currency: £
 
   header:
     navbar:
       home: Home
-      contact: Contact
+      contact: Support
       login: Login
       register: Register
       logout: Logout
       orders: Orders
 
   games:
+    index:
+      games_list: Featured Games
     show:
       release_date: Released
       genres: Genre
@@ -65,7 +68,7 @@ en:
         username: Username
         password: Password
 
-  carts:
+  cart:
     show:
       remove: Remove
       empty: Empty!

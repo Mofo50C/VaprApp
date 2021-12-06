@@ -9,7 +9,7 @@
         <div class="d-flex justify-content-center m-3">
           <div><h5><u><%= order.game.title %></u></h5></div>
           <div class="ms-auto align-self-center">
-            <%= render partial: "shared/price", locals: {game: order.game} %>
+            <%= render partial: "shared/price", locals: {game: order.game, sale: false} %>
           </div>
         </div>
       </li>
