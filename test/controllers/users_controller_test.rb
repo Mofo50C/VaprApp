@@ -29,8 +29,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
         assert_not flash[:account_created]
     end
 
-    test "should not sign up if username or email duplicated" do
-        assert_equal users(:one).username, "test1"
+    test "should not sign up without validating" do
         assert_no_difference 'User.count' do
             post register_url, params: {user: {username: "test1", email: "test2@test", password: "Password2", password_confirmation: "Password2"}}
         end
@@ -38,7 +37,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
         assert flash.now[:alert]
         assert_select ".username-dupe"
 
-        assert_equal users(:one).email, "test1@test"
         assert_no_difference 'User.count' do
             post register_url, params: {user: {username: "test2", email: "test1@test", password: "Password2", password_confirmation: "Password2"}}
         end
