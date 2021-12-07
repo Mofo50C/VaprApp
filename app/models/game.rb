@@ -5,6 +5,7 @@ class Game < ApplicationRecord
     has_and_belongs_to_many :carts, join_table: "cart_items"
     has_many :orders
     has_many :users, through: :orders
+    validates :title, uniqueness: true
 
     def calculate_price
         price * (100 - discount) / 100
