@@ -10,6 +10,7 @@ By: Mohammad Foroughi for COM2025 Coursework
 - Rails: 6.1.4.1
 - NodeJS: v12.22.7
 - Yarn: 1.22.15
+- Bundler: 2.2.32
 
 ## Installation
 
