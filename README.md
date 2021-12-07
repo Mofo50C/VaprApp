@@ -18,9 +18,20 @@ Please make sure ruby and nodejs versions match requirements before running
 
 - clone repo and cd to root
 - run `yarn install`
-- run `bundle install`
-- run `rails db:setup` (just to be safe)
+- run `bundle`
+- run `rails db:setup`
 - run `rails s` for development server
+
+`bundle`, `rails` and `yarn` are also available in the `bin` directory
+
+## Usage
+
+Some parts of the app require login.
+
+Functionality for this is implemented but a default user has also been provided for testing purposes:
+
+- username: user1
+- password: Password1
 
 ## Troubleshooting
 

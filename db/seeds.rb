@@ -60,3 +60,5 @@ dbd.publishers << Publisher.create(name: "Behaviour Interactive")
 
 dyson_sphere.developers << Developer.create(name: "Youthcat Studio")
 dyson_sphere.publishers << Publisher.create(name: "Gamera Game")
+
+User.create(username: "user1", email: "user1@domain", password: "Password1")
